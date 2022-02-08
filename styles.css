@@ -111,7 +111,7 @@ utility clases
   width: auto;
   transition: 0s 180s;
 }
-.board-container div:hover {
+.square:hover {
   background-color: rgb(196, 34, 34);
   transition: 0s;
 }

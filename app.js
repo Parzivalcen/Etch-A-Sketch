@@ -5,7 +5,6 @@
 // Ask user for how much squares they want.
 const container = document.querySelector(".board-container");
 let nSquares = 16;
-let userSquares = 0;
 
 const btn = document.querySelector(".btn--change");
 
@@ -21,9 +20,12 @@ function createDivs(nSquares) {
     container.style.gridTemplateRows = `repeat(${nSquares}, 1fr)`;
     container.style.gridTemplateColumns = `repeat(${nSquares}, 1fr)`;
     let div = document.createElement("div");
+    div.classList.add("square");
     container.appendChild(div);
   }
 }
+// let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+// document.querySelector("square").style.backgroundColor = `#${randomColor}`;
 
 // ask for size change when pressing the button
 // Display a pront when button is pressed

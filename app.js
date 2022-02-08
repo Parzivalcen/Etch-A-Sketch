@@ -5,13 +5,22 @@
 // Ask user for how much squares they want.
 const container = document.querySelector(".board-container");
 let nSquares = 16;
+// create element div
+let squareDivs = [];
 
 const btn = document.querySelector(".btn--change");
+const removerBorder = document.querySelector('.btn--borders');
 
 createDivs(nSquares);
+// ask user for input when btn is clicked
 btn.addEventListener("click", () => {
   askUser();
 });
+removerBorder.addEventListener("click", () => {
+  removeBorder(squareDivs);
+});
+
+
 
 function createDivs(nSquares) {
   for (let i = 0; i < nSquares * nSquares; i++) {
@@ -23,6 +32,8 @@ function createDivs(nSquares) {
     div.classList.add("square");
     container.appendChild(div);
   }
+  // get all div for styling
+  squareDivs = container.querySelectorAll('.square');
 }
 // let randomColor = Math.floor(Math.random() * 16777215).toString(16);
 // document.querySelector("square").style.backgroundColor = `#${randomColor}`;
@@ -48,4 +59,17 @@ function askUser() {
   }
   createDivs(nSquares);
   console.log("IM USER SQUARES", nSquares);
+}
+
+
+//Change border color
+//add inline style to each div
+function removeBorder(divs) {
+  if(nSquares > 33){
+    alert("This number is too large, can't remove borders, shouldn't be bigger than 33")
+    return; //Performance issues
+  }
+  divs.forEach(div => div.classList.add('noBorder'));
+  divs.forEach(div => div.classList.remove('square'));
+  // console.log(divs[0]);
 }
